@@ -21,6 +21,9 @@ function charPage(name) {
   var charActionMenu = document
     .getElementById("Character_InfoBox")
     .querySelector(".charactionmenu");
+  name =  document
+  .getElementById("Character_InfoBox")
+  .querySelector(".charname").textContent;
   var link = document.createElement("a");
   link.append("F-Status");
   link.href = "https://fstatus.stormweyr.dk/c/" + name;
@@ -36,13 +39,13 @@ function charPage(name) {
 
 function iconPage() {
   var observables = document.querySelector("#existingIcons");
-  var observer = new MutationObserver(callback);
+  var observer = new MutationObserver(iconPageCallback);
   var targetNode = document.body;
 
   observer.observe(targetNode, { childList: true, subtree: true });
 }
 
-function callback(records) {
+function iconPageCallback(records) {
   records.forEach(function (record) {
     var list = record.addedNodes;
     var i = list.length - 1;
