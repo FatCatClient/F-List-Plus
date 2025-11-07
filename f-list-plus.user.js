@@ -1,8 +1,9 @@
 // ==UserScript==
 // @name     F-List+
 // @author FatCatClient
-// @version  1.0
+// @version  1.1
 // @grant    none
+// @updateURL https://raw.githubusercontent.com/FatCatClient/F-List-Plus/refs/heads/main/f-list-plus.user.js
 // @match https://www.f-list.net/*
 // ==/UserScript==
 
@@ -57,6 +58,7 @@ function callback(records) {
         );
         iconElement.onclick = function () {
           navigator.clipboard.writeText("[eicon]" + eiconName + "[/eicon]");
+            FList.Common_displayNotice("Copied eicon to clipboard",0);
         };
         iconElement.style.cursor = "pointer";
       }
